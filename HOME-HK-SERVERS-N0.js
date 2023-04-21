@@ -2,29 +2,26 @@
 export async function main(ns) {
 
                 
-		const srvrN0 = [
+    const srvrN0 = [
         "n00dles",
-		"foodnstuff",
+        "foodnstuff",
         "sigma-cosmetics",
         "joesguns",
         "nectar-net",
         "hong-fang-tea",
         "harakiri-sushi"
-		];
-		
-	
+    ];
+        
+    
         let hkscript = ns.args[0];
-        let threads = ns.args[1];        
-        let target = ns.args[2];
 
 
-
-		for(let i = 0; i< srvrN0.length; ++i){
-		
-		const target = srvrN0[i];
-		const srvrprop = ns.getServer(target);
-		
-		if (ns.fileExists("BruteSSH.exe", "home")) {
+        for(let i = 0; i< srvrN0.length; ++i){
+        
+        const target = srvrN0[i];
+        const srvrprop = ns.getServer(target);
+        
+        if (ns.fileExists("BruteSSH.exe", "home")) {
                 if (!srvrprop.sshPortOpen) { ns.brutessh(target); };
         };
 
@@ -46,9 +43,9 @@ export async function main(ns) {
 
         ns.nuke(target);
 
-        ns.exec(hkscript, "home", threads, target);
-		
-		}
+        ns.exec(hkscript, "home", target === "n00dles" ? 25 : 50, target);
+        
+        };
 
 }
 
